@@ -80,6 +80,35 @@ class App:
     def passenger_ekran(self):  # ← Bu artık App'in bir metodu
         button = tk.Button(self.secim_frame, text="Generate Route", command=self.passenger_sonuc)
         button.pack(pady=15)
+        button1 = tk.Button(self.secim_frame, text="Back", command=self.baslangic)
+        button1.pack(pady=15)
+    def baslangic(self):
+        class App:
+         def __init__(self, root):
+          self.root = root
+        root.title(yazilar.baslik)
+        root.geometry("500x500")
+        root.resizable(True, True)
+
+        # 1. Ekran - Rol seçimi
+        
+        self.rol_frame = tk.Frame(root)
+        self.rol_frame.pack(fill="both", expand=True)
+
+        self.rol_label = tk.Label(self.rol_frame, text="Select Role", font=("Arial", 14, "bold"))
+        self.rol_label.pack(pady=10)
+
+        self.selected_rol = tk.StringVar(value=yazilar.roller[0])
+
+        for rol in yazilar.roller:
+         rb = tk.Radiobutton(self.rol_frame, text=rol, variable=self.selected_rol, value=rol, font=("Arial", 12))
+         rb.pack(anchor="w", padx=50)
+
+        self.next_button = tk.Button(self.rol_frame, text="Next", command=self.next_ekran)
+        self.next_button.pack(pady=20)
+
+       
+
 
     def passenger_sonuc(self):
         stations = veri_al("stations")
@@ -164,4 +193,9 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = App(root)
     root.mainloop()
+
+
+      
+
+    
  
