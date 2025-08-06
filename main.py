@@ -9,6 +9,7 @@ import os
 print("Dosya var mı:", os.path.exists("scr.png"))
 print("Roller içeriği:", yazilar.roller)
 
+
 VERI_KLASORU = "veri"
 print("Roller içeriği:", yazilar.roller)
 print("Türü:", type(yazilar.roller))
@@ -16,6 +17,7 @@ print("İlk eleman:", yazilar.roller[0])
 print("Tüm elemanlar ayrı mı?")
 for rol in yazilar.roller:
     print("-", rol)
+    
 
 def veri_al(dosya_adi):
     dosya_yolu = os.path.join(VERI_KLASORU, f"{dosya_adi.lower()}.py")
@@ -25,6 +27,9 @@ def veri_al(dosya_adi):
     modul = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(modul)
     return getattr(modul, "veriler", [])
+print("Test (stations):", veri_al("stations"))
+print("Test (trains):", veri_al("trains"))
+print("Test (zone):", veri_al("zone"))
 
 class App:
     def __init__(self, root):

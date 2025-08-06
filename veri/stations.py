@@ -1,4 +1,4 @@
-stations = [
+veriler = [
 "Willowfield",
 "Hemdon Park",
 "Beechley",
