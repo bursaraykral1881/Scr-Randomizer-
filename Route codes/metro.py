@@ -1,0 +1,1 @@
+veriler  = ["Class 717", "Class 777","Class 555", "Class 756"]

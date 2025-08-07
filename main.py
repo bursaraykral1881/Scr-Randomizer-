@@ -17,24 +17,14 @@ print("Tüm elemanlar ayrı mı?")
 for rol in yazilar.roller:
     print("-", rol)
 
-def veri_al(dosya_adi):
- dosya_yolu = os.path.join(rota_klasor, f"{dosya_adi.lower()}.py")
- if not os.path.exists(dosya_yolu):
-  return []
- spec = importlib.util.spec_from_file_location("modul", dosya_yolu)
- modul = importlib.util.module_from_spec(spec)
- spec.loader.exec_module(modul)
- return getattr(modul, "veriler", [])
-    
-
-def veri_al(dosya_adi):
-    dosya_yolu = os.path.join(VERI_KLASORU, f"{dosya_adi.lower()}.py")
+def veri_al(dosya_adi, klasor="veri"):
+    dosya_yolu = os.path.join(klasor, f"{dosya_adi.lower()}.py")
     if not os.path.exists(dosya_yolu):
-        return []
+        return None
     spec = importlib.util.spec_from_file_location("modul", dosya_yolu)
     modul = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(modul)
-    return getattr(modul, "veriler", [])
+    return getattr(modul, "veriler", None) or getattr(modul, "rotalar", None)
 print("Test (stations):", veri_al("stations"))
 print("Test (trains):", veri_al("trains"))
 print("Test (zone):", veri_al("zone"))
@@ -159,16 +149,26 @@ class App:
 
         self.result_label = tk.Label(self.secim_frame, text="", fg="blue")
         self.result_label.pack()
+        self.label5 = tk.Label(self.secim_frame, text="", fg="blue")
+        self.label5.pack()
+
 
     def driver_sonuc(self):
-        operator = self.selected_operator.get()
-        veriler = veri_al(operator)
-       
-        if veriler:
-            route = random.choice(veriler)
-            self.result_label.config(text=f"Route: {route}")
-        else:
-            self.result_label.config(text="No routes found.")
+     operator = self.selected_operator.get()
+     veriler = veri_al(operator)
+     data = veri_al("routes", klasor="DATAroutes") 
+
+     if not veriler:
+        self.result_label.config(text="No trains found.", fg="red")
+     else:
+        train = random.choice(veriler)
+        self.result_label.config(text=f"Train: {train}", fg="blue")
+
+     if not data:
+        self.label5.config(text="No routes found.", fg="red")
+     else:
+        rota = random.choice(data)
+        self.label5.config(text=f"Route: {rota}", fg="blue")
 
     def guard_ekran(self):
         # Önce ekranı temizleyelim
