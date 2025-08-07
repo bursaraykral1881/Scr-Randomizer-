@@ -1,1 +1,1 @@
-veriler = ["Class 185", "Class 332","Class 360","Class 387", "Class 397/1","Class 745","Class 755","Class 802"]
+veriler = ["R051", "R054", "R052", "R053", "R055", "R059", "R056", "R057", "R058", "R060"]

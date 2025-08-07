@@ -1,1 +1,1 @@
-veriler  = ["Class 156", "Class 158", "Class 168", "Class 170", "Class 185", "Class 185", "Class 195","Class 321", "Class 331", "Class 350", "Class 360", "Class 365", "Class 377", "Class 380", "Class 444", "Class 387", "Class 458/0", "Class 458/5", "Class 707","Class 720","Class 730/1","Class 68"]
+veriler = ["R001", "R005", "R032", "R033", "R046", "R048", "R020," "R022", "R103", "R007", "R037", "R038", "R039", "R040", "R041", "R042", "R043", "R044", "R049", "R050", "R100", "R101", "R102", "R004", "R009", "R024", "R026", "R045", "R003", "R025", "R035", "R036"]
