@@ -1,4 +1,4 @@
-baslik = "SCR Train Randomizer"
+baslik = "SCR Randomizer"
 
 roller = [
     "Passenger",
@@ -6,7 +6,6 @@ roller = [
     "Dispatcher",
     "Guard",
     "Signaller"
-    
 ]
 
 operatorler = [
