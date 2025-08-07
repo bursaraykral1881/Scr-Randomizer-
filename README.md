@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-# Scr-Randomizer-
-
-Scr-Randomizer
-
-
-
-
-
-=======
 # SCR Train Randomizer
 
 The SCR Train Randomizer is a Python application built with Tkinter that provides random assignments for various roles within a simulated train environment. It's designed to add an element of unpredictability and replayability to train simulation games or scenarios.
@@ -59,4 +49,3 @@ Once the application launches:
 ## License
 
 This project is licensed under the [MIT LICENSE](https://github.com/bursaraykral1881/Scr-Randomizer-/blob/main/LICENSE) file.
->>>>>>> d6f3dbaf48bf9238455c42f1498938a0872bdf5c
