@@ -5,7 +5,7 @@ Scr-Randomizer
 
 
 
-Scr nin bütün rollerini üstlenen
+
 
 =======
 # SCR Train Randomizer

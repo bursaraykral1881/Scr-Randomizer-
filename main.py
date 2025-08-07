@@ -8,15 +8,23 @@ import os
 
 print("Dosya var mı:", os.path.exists("scr.png"))
 print("Roller içeriği:", yazilar.roller)
-
-
 VERI_KLASORU = "veri"
+rota_klasor = "DATAroutes"
 print("Roller içeriği:", yazilar.roller)
 print("Türü:", type(yazilar.roller))
 print("İlk eleman:", yazilar.roller[0])
 print("Tüm elemanlar ayrı mı?")
 for rol in yazilar.roller:
     print("-", rol)
+
+def veri_al(dosya_adi):
+ dosya_yolu = os.path.join(rota_klasor, f"{dosya_adi.lower()}.py")
+ if not os.path.exists(dosya_yolu):
+  return []
+ spec = importlib.util.spec_from_file_location("modul", dosya_yolu)
+ modul = importlib.util.module_from_spec(spec)
+ spec.loader.exec_module(modul)
+ return getattr(modul, "veriler", [])
     
 
 def veri_al(dosya_adi):
@@ -132,9 +140,7 @@ class App:
         button1 = tk.Button(self.secim_frame, text="Back", command=self.baslangic)
         button1.pack(pady=15)
 
-    def baslangic(self):
-        self.secim_frame.pack_forget()
-        self.rol_frame.pack(fill="both", expand=True)
+
 
     def driver_ekran(self):
         label = tk.Label(self.secim_frame, text="Select Operator", font=("Arial", 12))
@@ -157,6 +163,7 @@ class App:
     def driver_sonuc(self):
         operator = self.selected_operator.get()
         veriler = veri_al(operator)
+       
         if veriler:
             route = random.choice(veriler)
             self.result_label.config(text=f"Route: {route}")
