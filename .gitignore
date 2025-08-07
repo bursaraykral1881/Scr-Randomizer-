@@ -1,4 +1,6 @@
 .venv/
 .idea/
-ekran/__pycache__
-veri/__pycache__
+ekran/__pycache__/
+veri/__pycache__/
+DATAroutes/__pycache/
+Route codes/__pycache/
